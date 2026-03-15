@@ -1,1 +1,16 @@
-print("Hi im agent e")
+#print("Hi im agent e")
+
+from ollama import chat
+from ollama import ChatResponse
+
+response: ChatResponse = chat(model='mistral:7b', messages=[
+  {
+    'role': 'user',
+    'content': 'Why is the sky blue?',
+  },
+])
+print(response['message']['content'])
+# or access fields directly from the response object
+print(response.message.content)
+
+# E:\.venv
